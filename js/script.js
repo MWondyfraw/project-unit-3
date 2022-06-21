@@ -45,15 +45,15 @@ design.addEventListener('change',(e) => {
 
         
     });
-
-    // The "Reigster for Activities" Section
+    
+    // The "Reigster for Activites" Section
     // The total cost should be totaled and displayed for the user
 
-    const registerActivities = document.getElementById('activites');
+    const registerActivites = document.getElementById('activites');
     const total = document.getElementById('total');
     const totalCost = 0;
 
-    registerActivities.addEventListener('change', (e) => {
+    registerActivites.addEventListener('change', (e) => {
         let = e.target.getAttribute('data-cost');
         if(e.target.checked){
             totalCost += dataCost;
