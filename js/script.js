@@ -53,7 +53,7 @@ design.addEventListener('change',(e) => {
     const total = document.getElementById('total');
     const totalCost = 0;
 
-    registerActivites.addEventListener('change', (e) => {
+    document.addEventListener('change', (e) => {
         let = e.target.getAttribute('data-cost');
         if(e.target.checked){
             totalCost += dataCost;
@@ -95,7 +95,7 @@ design.addEventListener('change',(e) => {
 
     // The "Form Validation" Section
     // Create a form to listen for submission event & test the value or condition of the submission detected
-
+    const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const cardInput = document.getElementById('card'); 
     const zipInput = document.getElementById('zip');
@@ -133,11 +133,11 @@ design.addEventListener('change',(e) => {
     // If input is not put correctly, error messages will display
     // If intput is put correctly, error message will not display
 
-    if (!nameTest) {
+    if (!nameInput) {
         e.preventDefault();
-        validationFail('name');
+        validationFail(nameInput);
     } else {
-        validationPass('name');
+        validationPass(nameInput);
     }
 
     if (!email) {
