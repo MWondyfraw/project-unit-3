@@ -102,28 +102,28 @@ design.addEventListener('change',(e) => {
     const cvvInput = document.getElementById('cvv');
     const formInput = document.getElementById('form');
 
-    function nameValidation () {
+    function nameValid () {
         let name = nameField.value;
         return RegExpName = /\w+/.test(name);
     }
-    function emailValidation() {
+    function emailValid() {
         let email = emailField.value;
         return RegExpEmail = /[^@]+@[^@.]+\.com$/i.test(email);
 
     }
-    function cardValidation () {
+    function cardValid () {
         let card = cardField.value;
         return RegExpCard = /^/d/{13:16}.test(credit-card);
     }
-    function zipValidation() {
+    function zipValid() {
         let zip = zipField.value;
         return RegExpZip = /^/d[5].test(zip);
     }
-    function cvvValidation() {
+    function cvvValid() {
         let cvv = cvvField.value;
         return RegExpCvv = /^/d[3]/i.test(cvv);
     }
-    function activityValidation() {
+    function activityValid() {
         if (totalCost === 0){
             return false;
         } else {
@@ -135,23 +135,23 @@ design.addEventListener('change',(e) => {
 
     if (!nameInput) {
         e.preventDefault();
-        validationFail(nameInput);
+        validFail(nameInput);
     } else {
-        validationPass(nameInput);
+        validPass(nameInput);
     }
 
     if (!email) {
         e.preventDefault();
-        validationFail('email');
+        validFail('email');
     } else {
-        validationPass('email');
+        validPass('email');
     }
 
     if (!activityTest) {
         e.preventDefault();
-        validationFail('activity')
+        validFail('activity')
     } else {
-        validationPass('activity');
+        validPass('activity');
     }
 
     formInput.addEventListener('submit', (e) => {
