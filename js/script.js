@@ -49,19 +49,17 @@ design.addEventListener('change',(e) => {
     // The "Reigster for Activites" Section
     // The total cost should be totaled and displayed for the user
 
-    const registerActivites = document.getElementById('activites');
-    const total = document.getElementById('total');
-    const totalCost = 0;
+    const registerActivities = document.getElementById('activities');
+    // console.log(registerActivities);
+    const total = document.getElementById("activities-cost");
+    let totalCost = 0;
 
-    document.addEventListener('change', (e) => {
-        let = e.target.getAttribute('data-cost');
-        if(e.target.checked){
-            totalCost += dataCost;
-        } else {
-            totalCost -= dataCost;
-
-        }
-        totalCost.innerHTML = `Total: $${totalCost}`;
+    registerActivities.addEventListener('change', (e) => {
+        let activities = e.target.getAttribute('data-cost');
+        let cost = parseInt(activities);
+        totalCost += cost;
+        console.log(totalCost);
+        total.innerHTML = totalCost;
     });
 
     // The "Payment Info" Section
@@ -93,15 +91,14 @@ design.addEventListener('change',(e) => {
         }
     });
 
-    // The "Form Validation" Section
+    // The "Form Validation" Section  
     // Create a form to listen for submission event & test the value or condition of the submission detected
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const cardInput = document.getElementById('card'); 
     const zipInput = document.getElementById('zip');
     const cvvInput = document.getElementById('cvv');
-    const formInput = document.getElementById('form');
-
+    const formInput = document.querySelector('form');
     function nameValid () {
         let name = nameField.value;
         return RegExpName = /\w+/.test(name);
@@ -133,38 +130,37 @@ design.addEventListener('change',(e) => {
     // If input is not put correctly, error messages will display
     // If intput is put correctly, error message will not display
 
-    if (!nameInput) {
-        e.preventDefault();
-        validFail(nameInput);
-    } else {
-        validPass(nameInput);
-    }
+    // if (!nameField) {
+    //     validFail(nameField);
+    // } else {
+    //     (nameField);
+    // }
 
-    if (!email) {
-        e.preventDefault();
-        validFail('email');
-    } else {
-        validPass('email');
-    }
+    // if (!emailField) {
+    //     validFail('emailField');
+    // } else {
+    //     ('emailField');
+    // }
 
-    if (!activityTest) {
-        e.preventDefault();
-        validFail('activity')
-    } else {
-        validPass('activity');
-    }
+    // if (!activity) {
+    //     validFail('activity')
+    // } else {
+    //     ('activity');
+    // }
 
     formInput.addEventListener('submit', (e) => {
-        if (validName()&& validEmail()&& validActivity()&& validPayment()) {
-           console.log('form submited'); 
-        } else {
-            e.preventDefault();
-            validActivity();
-            validEmail();
-            validName();
-            validPayment();
-            console.log('incorrect form submited');
-        }
+        e.preventDefault();
+        console.log("form");
+        // if (validName()&& validEmail()&& validActivity()&& validPayment()) {
+        //    console.log('form submited'); 
+        // } else {
+        //     e.preventDefault();
+        //     validActivity();
+        //     validEmail();
+        //     validName();
+        //     validPayment();
+        //     console.log('incorrect form submited');
+        // }
     });
 
     // The 'Accessibility' Section
