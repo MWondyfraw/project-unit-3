@@ -17,20 +17,20 @@
   </header>
 	<div class="container">
 
-    <form action="index.html" method="post" novalidate>
+    <form method="post" novalidate>
       <p id="form-hint" class="form-hint"><span class="asterisk">*</span> - required field</p>
 
       <div class="basic-info-and-shirt-box">       
         <fieldset class="basic-info">         
           <legend>Basic Info</legend>
-          
-          <label for="name">Name: <span class="asterisk">*</span>
+        
+          <label for="name"><span class="asterisk">*</span> Name <span id="checkmark-name" class="checkmark">&checkmark;</span>
             <input type="text" id="name" name="user-name" class="error-border">
             <span id="name-hint" class="name-hint hint">Name field cannot be blank</span>
           </label>
           
           
-          <label for="email">Email Address: <span class="asterisk">*</span>
+          <label for="email"><span class="asterisk">*</span> Email Address <span id="checkmark-email" class="checkmark">&checkmark;</span>
             <input type="email" id="email" name="user-email" class="error-border">
             <span id="email-hint" class="email-hint hint">Email address must be formatted correctly</span>
           </label>
@@ -90,7 +90,7 @@
       </div>               
 
       <fieldset id="activities" class="activities">
-        <legend>Register for Activities <span class="asterisk">*</span></legend>
+        <legend><span class="asterisk">*</span> Register for Activities <span id="checkmark-activities" class="checkmark">&checkmark;</span></legend>
         <div id="activities-box" class="activities-box error-border">
           <label>
             <input type="checkbox" name="main-conference" data-cost="200">
@@ -194,21 +194,21 @@
 
           <div class="credit-card-box">
             <div class="num-box">
-              <label for="cc-num">Card Number: <span class="asterisk">*</span>
+              <label for="cc-num"><span class="asterisk">*</span> Card Number <span id="checkmark-card" class="checkmark">&checkmark;</span>
                 <input id="cc-num" name="user-cc-num" type="text" class="error-border">
                 <span id="cc-hint" class="cc-hint hint">Credit card number must be between 13 - 16 digits</span>
               </label>
             </div>
 
             <div class="zip-box">
-              <label for="zip">Zip Code: <span class="asterisk">*</span>
+              <label for="zip"><span class="asterisk">*</span> Zip Code <span id="checkmark-zip" class="checkmark">&checkmark;</span>
                 <input id="zip" name="user-zip" type="text" class="error-border">
                 <span id="zip-hint" class="zip-hint hint">Zip Code must be 5 digits</span>
               </label>
             </div>
 
             <div class="cvv-box">
-              <label for="cvv">CVV: <span class="asterisk">*</span>
+              <label for="cvv"><span class="asterisk">*</span> CVV <span id="checkmark-cvv" class="checkmark">&checkmark;</span>
                 <input id="cvv" name="user-cvv" type="text" class="error-border">
                 <span id="cvv-hint" class="cvv-hint hint">CVV must be 3 digits</span>
               </label>

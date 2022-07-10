@@ -228,6 +228,11 @@ button:hover {
   vertical-align: sub;
 }
 
+.checkmark {
+  display: none;
+  color: green;
+}
+
 .valid {
   position: relative;
 }

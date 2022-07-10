@@ -96,23 +96,37 @@ paymentOption.addEventListener("change", (e) => {
 // Create a form to listen for submission event & test the value or condition of the submission detected
 const nameInput = document.getElementById("name");
 const nameHint = document.getElementById("name-hint");
+const nameCheck = document.getElementById("checkmark-name");
+
 const emailInput = document.getElementById("email");
 const emailHint = document.getElementById("email-hint");
+const emailCheck = document.getElementById("checkmark-email");
+
 const activitiesHint = document.getElementById("activities-hint");
+const activityCheck = document.getElementById("checkmark-activities");
+
 const cardInput = document.getElementById("cc-num");
 const cardHint = document.getElementById("cc-hint");
+const cardCheck = document.getElementById("checkmark-card");
+
 const zipInput = document.getElementById("zip");
 const zipHint = document.getElementById("zip-hint");
+const zipCheck = document.getElementById("checkmark-zip");
+
 const cvvInput = document.getElementById("cvv");
 const cvvHint = document.getElementById("cvv-hint");
+const cvvCheck = document.getElementById("checkmark-cvv");
+
 const formInput = document.querySelector("form");
 function nameValid() {
   let name = nameInput.value;
   let RegExpName = /\w+/.test(name);
   if (RegExpName) {
     nameHint.style.display = "none";
+    nameCheck.style.display = "inline";
   } else {
     nameHint.style.display = "block";
+    nameCheck.style.display = "none";
   }
   return RegExpName;
 }
@@ -121,50 +135,60 @@ function emailValid() {
   let RegExpEmail = /[^@]+@[^@.]+\.com$/i.test(email);
   if (RegExpEmail) {
     emailHint.style.display = "none";
+    emailCheck.style.display = "inline";
   } else {
     emailHint.style.display = "block";
+    emailCheck.style.display = "none";
   }
   return RegExpEmail;
   
 }
 function cardValid() {
   let card = cardInput.value;
-  let RegExpCard = /^/d/{13:16}.test(card);
+  let RegExpCard = /^\d{13,16}$/.test(card);
   if (RegExpCard) {
     cardHint.style.display = "none";
+    cardCheck.style.display = "inline";
   } else {
     cardHint.style.display = "block";
+    cardCheck.style.display = "none";
   }
   return RegExpCard;
  
 }
 function zipValid() {
   let zip = zipInput.value;
-  let RegExpZip =  /^/d[5].test(zip);
+  let RegExpZip =  /^\d{5}$/.test(zip);
   if (RegExpZip) {
     zipHint.style.display = "none";
+    zipCheck.style.display = "inline";
   } else {
     zipHint.style.display = "block";
+    zipCheck.style.display = "none";
   }
   return RegExpZip;
   
 }
 function cvvValid() {
   let cvv = cvvInput.value;
-  let RegExpCVV = /^/d[3] / i.test(cvv);
+  let RegExpCVV = /^\d{3}$/.test(cvv);
   if (RegExpCVV) {
     cvvHint.style.display = "none";
+    cvvCheck.style.display = "inline";
   } else {
     cvvHint.style.display = "block";
+    cvvCheck.style.display = "none";
   }
   return RegExpCVV;
 }
 function activityValid() {
   if (totalCost === 0) {
     activitiesHint.style.display = "block";
+    activityCheck.style.display = "none";
     return false;
   } else {
     activitiesHint.style.display = "none";
+    activityCheck.style.display = "inline";
     return true;
   }
 }
@@ -184,8 +208,6 @@ function paymentValid() {
 }
 
 formInput.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log("form");
   if (nameValid() && emailValid() && activityValid() && paymentValid()) {
     console.log("form submited");
   } else {
@@ -201,12 +223,12 @@ formInput.addEventListener("submit", (e) => {
 // The 'Accessibility' Section
 // Make sure all the fields are accessible to all users
 
-let checkboxes = document.querySelectorAll("input[type=checbox]");
-for (let i = 0; i < checkboxes.length; i++) {
+let checkboxesInput = document.querySelectorAll("input[type=checkbox]");
+for (let i = 0; i < checkboxesInput.length; i++) {
   checkboxesInput[i].addEventListener("focus", (e) => {
-    checkboxesInput[i].parentElement.classlist.add("focus");
+    checkboxesInput[i].parentElement.classList.add("focus");
   });
   checkboxesInput[i].addEventListener("blur", (e) => {
-    checkboxesInput[i].parentElement.classlist.remove("focus");
+    checkboxesInput[i].parentElement.classList.remove("focus");
   });
 }
