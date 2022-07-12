@@ -276,7 +276,7 @@ button:hover {
 
 .activities.valid::after,
 .activities.not-valid::after {
-  top: 5px;
+  top: -40px;
 }
 /* ================================= 
   Basic info and t shirt styles

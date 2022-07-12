@@ -102,6 +102,7 @@ const emailInput = document.getElementById("email");
 const emailHint = document.getElementById("email-hint");
 const emailCheck = document.getElementById("checkmark-email");
 
+const activities = document.getElementById("activities");
 const activitiesHint = document.getElementById("activities-hint");
 const activityCheck = document.getElementById("checkmark-activities");
 
@@ -199,14 +200,16 @@ function cvvValid() {
 function activityValid() {
   if (totalCost === 0) {
     activitiesHint.style.display = "block";
-    //activityInput.parentElement.classList = "";
-    //activityInput.parentElement.classList.add("valid");
+    //activities.classList = "";
+    activities.classList.add("not-valid");
+    activities.classList.remove("valid");
     //activityCheck.style.display = "none";
     return false;
   } else {
     activitiesHint.style.display = "none";
-    //activityInput.parentElement.classList = "";
-    //activityInput.parentElement.classList.add("not-valid");
+   // activities.classList = "";
+    activities.classList.add("valid");
+    activities.classList.remove("not-valid");
     //activityCheck.style.display = "inline";
     return true;
   }
