@@ -122,11 +122,13 @@ function nameValid() {
   let name = nameInput.value;
   let RegExpName = /\w+/.test(name);
   if (RegExpName) {
+    nameInput.parentElement.classList = "";
+    nameInput.parentElement.classList.add("valid");
     nameHint.style.display = "none";
-    nameCheck.style.display = "inline";
   } else {
+    nameInput.parentElement.classList = "";
+    nameInput.parentElement.classList.add("not-valid");
     nameHint.style.display = "block";
-    nameCheck.style.display = "none";
   }
   return RegExpName;
 }
@@ -135,60 +137,77 @@ function emailValid() {
   let RegExpEmail = /[^@]+@[^@.]+\.com$/i.test(email);
   if (RegExpEmail) {
     emailHint.style.display = "none";
-    emailCheck.style.display = "inline";
+    emailInput.parentElement.classList = "";
+    emailInput.parentElement.classList.add("valid");
+    //emailCheck.style.display = "inline";
   } else {
     emailHint.style.display = "block";
-    emailCheck.style.display = "none";
+    emailInput.parentElement.classList = "";
+    emailInput.parentElement.classList.add("not-valid");
+   // emailCheck.style.display = "none";
   }
   return RegExpEmail;
-  
 }
 function cardValid() {
   let card = cardInput.value;
   let RegExpCard = /^\d{13,16}$/.test(card);
   if (RegExpCard) {
+    cardInput.parentElement.classList = "";
+    cardInput.parentElement.classList.add("valid");
     cardHint.style.display = "none";
-    cardCheck.style.display = "inline";
+    //cardCheck.style.display = "inline";
   } else {
     cardHint.style.display = "block";
-    cardCheck.style.display = "none";
+    cardInput.parentElement.classList = "";
+    cardInput.parentElement.classList.add("not-valid");
+    //cardCheck.style.display = "none";
   }
   return RegExpCard;
- 
 }
 function zipValid() {
   let zip = zipInput.value;
-  let RegExpZip =  /^\d{5}$/.test(zip);
+  let RegExpZip = /^\d{5}$/.test(zip);
   if (RegExpZip) {
+    zipInput.parentElement.classList = "";
+    zipInput.parentElement.classList.add("valid");
     zipHint.style.display = "none";
-    zipCheck.style.display = "inline";
+    //zipCheck.style.display = "inline";
   } else {
     zipHint.style.display = "block";
-    zipCheck.style.display = "none";
+    zipInput.parentElement.classList = "";
+    zipInput.parentElement.classList.add("not-valid");
+    //zipCheck.style.display = "none";
   }
   return RegExpZip;
-  
 }
 function cvvValid() {
   let cvv = cvvInput.value;
   let RegExpCVV = /^\d{3}$/.test(cvv);
   if (RegExpCVV) {
+    cvvInput.parentElement.classList = "";
+    cvvInput.parentElement.classList.add("valid");
     cvvHint.style.display = "none";
-    cvvCheck.style.display = "inline";
+    //cvvCheck.style.display = "inline";
   } else {
     cvvHint.style.display = "block";
-    cvvCheck.style.display = "none";
+    cvvInput.parentElement.classList = "";
+    cvvInput.parentElement.classList.add("not-valid");
+    //cvvCheck.style.display = "none";
   }
   return RegExpCVV;
 }
 function activityValid() {
   if (totalCost === 0) {
     activitiesHint.style.display = "block";
-    activityCheck.style.display = "none";
+    //activityInput.parentElement.classList = "";
+    //activityInput.parentElement.classList.add("valid");
+    //activityCheck.style.display = "none";
     return false;
   } else {
     activitiesHint.style.display = "none";
-    activityCheck.style.display = "inline";
+    //activityInput.parentElement.classList = "";
+    //activityInput.parentElement.classList.add("not-valid");
+    //activityCheck.style.display = "inline";
     return true;
   }
 }
@@ -202,9 +221,9 @@ function paymentValid() {
     } else {
       return false;
     }
+  } else if (paymentOption.value !== "credit-card"){
+    return true;
   }
-
-  
 }
 
 formInput.addEventListener("submit", (e) => {
